@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AutomovelService } from './service/automovelService';
 import { ClienteService } from './service/clienteService';
 import { ConcessionariaService } from './service/concessionariaService';
+import { ModalAlerta } from './modal-alerta/modal-alerta';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,9 @@ export class AppComponent implements OnInit {
         console.log(`Dialog result: ${result}`);
       });
     } else {
-      this.snackBar.open("Essa área não possui nenhuma alocação!", "Fechar")
+      this.snackBar.openFromComponent(ModalAlerta, {
+        duration: 3000,
+      });
     }
   }
 

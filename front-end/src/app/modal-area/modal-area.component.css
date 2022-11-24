@@ -1,7 +1,15 @@
+* {
+    font-family: 'Segoe UI';
+}
+
 #modal {
     width: 25vw;
 }
 
 table, ng-container {
     width: 100%;
+}
+
+.fonteBase {
+    font-family: 'Segoe UI';
 }

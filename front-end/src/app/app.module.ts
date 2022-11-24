@@ -16,12 +16,14 @@ import { AutomovelService } from './service/automovelService';
 import { ClienteService } from './service/clienteService';
 import { ConcessionariaService } from './service/concessionariaService';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ModalAlerta } from './modal-alerta/modal-alerta';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalAreaComponent,
-    ModalVendaComponent
+    ModalVendaComponent,
+    ModalAlerta
   ],
   imports: [
     BrowserModule,

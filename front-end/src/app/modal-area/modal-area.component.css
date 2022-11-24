@@ -13,3 +13,8 @@ table, ng-container {
 .fonteBase {
     font-family: 'Segoe UI';
 }
+
+.btn {
+    background-color: #7814ff;
+    color: white;
+}

@@ -55,6 +55,9 @@ export class ModalVendaComponent implements OnInit {
   }
 
   confirmSell() {
+    const btn = document.getElementById("btnCloseModalVenda") as HTMLButtonElement;
+    btn.click();
+    
     let params: any = {};
     params.area = parseInt(this.data.area);
     params.concessionariaJson = JSON.stringify(this.buscarConcessionaria());

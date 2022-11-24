@@ -25,6 +25,9 @@ export class ModalAreaComponent implements OnInit {
   listaAutomoveis: any = [{ id: 1, modelo: 'Gol', preco: 10000 }, { id: 2, modelo: 'Palio', preco: 12000 }, { id: 3, modelo: 'Uno', preco: 8000 }];
 
   openVendaAutomovel(automovel: { id: number, modelo: string, preco: number }) {
+    const btn = document.getElementById("btnCloseModalAreal") as HTMLButtonElement;
+    btn.click();
+
     this.dialog.open(ModalVendaComponent, {
       data: {
         automovel,

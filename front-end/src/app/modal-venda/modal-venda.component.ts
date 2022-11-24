@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AlocacaoService } from '../service/alocacaoService';
 import { ClienteService } from '../service/clienteService';
 import { ConcessionariaService } from '../service/concessionariaService';
 
@@ -12,7 +13,8 @@ export class ModalVendaComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private clienteService: ClienteService,
-    private concessionariaService: ConcessionariaService
+    private concessionariaService: ConcessionariaService,
+    private alocacaoService: AlocacaoService
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +46,27 @@ export class ModalVendaComponent implements OnInit {
     console.log("c", this.concessionaria)
   }
 
+  buscarConcessionaria() {
+    for (const con of this.listaConcessionaria) {
+      if (con.id == this.concessionaria) {
+        return con;
+      }
+    }
+  }
+
   confirmSell() {
     console.log("a")
+    let params: any = {};
+    params.area = parseInt(this.data.area);
+    params.concessionariaJson = JSON.stringify(this.buscarConcessionaria());
+    params.automovelJson = JSON.stringify(this.data.automovel);
+    this.alocacaoService.getByAreaAndConcessionariaAndAutomovel(params).subscribe(
+      data => {
+        data.quantidade--;
+        this.alocacaoService.putAlocacao(data.id, data).subscribe(
+          data => { console.log("Sucesso!") }
+        )
+      }
+    );
   }
 }

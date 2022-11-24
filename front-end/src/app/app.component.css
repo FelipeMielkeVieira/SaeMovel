@@ -118,3 +118,14 @@
     bottom: 85%;
     z-index: 50;
 }
+
+.azul {
+    background-color: #0000ff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.naoAzul {
+    background-color: #ffffff;
+    color: #000000;
+}

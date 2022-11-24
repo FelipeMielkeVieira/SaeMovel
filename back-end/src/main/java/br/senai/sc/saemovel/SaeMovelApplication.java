@@ -1,4 +1,4 @@
-package saeMovel.demo;
+package br.senai.sc.saemovel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -17,6 +17,7 @@ import { ClienteService } from './service/clienteService';
 import { ConcessionariaService } from './service/concessionariaService';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalAlerta } from './modal-alerta/modal-alerta';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ModalAlerta } from './modal-alerta/modal-alerta';
     MatButtonModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   providers: [AlocacaoService, AutomovelService, ClienteService, ConcessionariaService],
   bootstrap: [AppComponent]

@@ -18,13 +18,15 @@ import { ConcessionariaService } from './service/concessionariaService';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ModalAlerta } from './modal-alerta/modal-alerta';
 import { FormsModule } from '@angular/forms';
+import { ModalVendaFeita } from './modal-venda-feita/modal-venda-feita';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalAreaComponent,
     ModalVendaComponent,
-    ModalAlerta
+    ModalAlerta,
+    ModalVendaFeita
   ],
   imports: [
     BrowserModule,

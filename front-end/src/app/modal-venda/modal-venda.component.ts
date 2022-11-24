@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlocacaoService } from '../service/alocacaoService';
 import { ClienteService } from '../service/clienteService';
 import { ConcessionariaService } from '../service/concessionariaService';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalVendaFeita } from '../modal-venda-feita/modal-venda-feita';
 
 @Component({
   selector: 'app-modal-venda',
@@ -14,7 +16,8 @@ export class ModalVendaComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private clienteService: ClienteService,
     private concessionariaService: ConcessionariaService,
-    private alocacaoService: AlocacaoService
+    private alocacaoService: AlocacaoService,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -41,9 +44,6 @@ export class ModalVendaComponent implements OnInit {
     if (this.cliente != 0 && this.concessionaria != 0) {
       this.isConfirmDisabled = false;
     }
-
-    console.log("cliente", this.cliente)
-    console.log("c", this.concessionaria)
   }
 
   buscarConcessionaria() {
@@ -55,16 +55,21 @@ export class ModalVendaComponent implements OnInit {
   }
 
   confirmSell() {
-    console.log("a")
     let params: any = {};
     params.area = parseInt(this.data.area);
     params.concessionariaJson = JSON.stringify(this.buscarConcessionaria());
     params.automovelJson = JSON.stringify(this.data.automovel);
+    
     this.alocacaoService.getByAreaAndConcessionariaAndAutomovel(params).subscribe(
       data => {
         data.quantidade--;
+
         this.alocacaoService.putAlocacao(data.id, data).subscribe(
-          data => { console.log("Sucesso!") }
+          data => {
+            this.snackBar.openFromComponent(ModalVendaFeita, {
+              duration: 3000,
+            });
+          }
         )
       }
     );

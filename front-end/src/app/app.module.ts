@@ -9,6 +9,11 @@ import { ModalVendaComponent } from './modal-venda/modal-venda.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { AlocacaoService } from './service/alocacaoService';
+import { AutomovelService } from './service/automovelService';
+import { ClienteService } from './service/clienteService';
+import { ConcessionariaService } from './service/concessionariaService';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +26,10 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AlocacaoService, AutomovelService, ClienteService, ConcessionariaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,11 @@
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAreaComponent } from './modal-area/modal-area.component';
-
+import { AlocacaoService } from './service/alocacaoService';
+import { AutomovelService } from './service/automovelService';
+import { ClienteService } from './service/clienteService';
+import { ConcessionariaService } from './service/concessionariaService';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

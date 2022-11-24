@@ -1,5 +1,14 @@
 .container-select {
     width: 100%;
+}
+
+.select {
+    width: 50%;
+    padding: 0.2rem 1rem;
+}
+
+.container-1-select {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

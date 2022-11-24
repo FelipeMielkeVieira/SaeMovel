@@ -2,10 +2,20 @@
     <h2 mat-dialog-title>Automóvel modelo: {{ data.automovel.modelo }}</h2>
     <mat-dialog-content class="mat-typography">
         <div class="container-select">
-            <label for="cliente">Cliente</label>
-            <select id="cliente">
-                <option *ngFor="let cliente of listaClientes" value="{{ cliente.id }}">{{ cliente.nome }}</option>
-            </select>
+            <div class="container-1-select">
+                <label for="cliente">Cliente</label>
+                <select id="cliente" class="select">
+                    <option *ngFor="let cliente of listaClientes" value="{{ cliente.id }}">{{ cliente.nome }}</option>
+                </select>
+            </div>
+
+            <div class="container-1-select">
+                <label for="concessionaria">Concessionária</label>
+                <select id="concessionaria" class="select">
+                    <option *ngFor="let concessionaria of listaConcessionaria" value="{{ concessionaria.id }}">{{
+                        concessionaria.concessionaria }}</option>
+                </select>
+            </div>
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">

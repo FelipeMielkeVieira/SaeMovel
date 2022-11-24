@@ -13,7 +13,8 @@ export class ModalVendaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  listaClientes: any = [{id: 1, nome: "Kenzo"}, {id: 2, nome: "Rafael"}, ];
+  listaClientes: any = [{ id: 1, nome: "Kenzo" }, { id: 2, nome: "Rafael" }, { id: 3, nome: "Rafaela" }];
+  listaConcessionaria: any = [{ id: 1, concessionaria: "Ado" }, { id: 2, concessionaria: "Ado2" }, { id: 3, concessionaria: "Ado3" }];
 
 
 }

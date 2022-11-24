@@ -5,3 +5,8 @@
 table, ng-container {
     width: 100%;
 }
+
+.btn {
+    background-color: #7814ff;
+    color: white;
+}

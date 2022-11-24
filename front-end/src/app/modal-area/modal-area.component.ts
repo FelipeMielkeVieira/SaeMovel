@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ModalVendaComponent } from '../modal-venda/modal-venda.component';
 import { AutomovelService } from '../service/automovelService';
 
 @Component({
@@ -9,7 +10,7 @@ import { AutomovelService } from '../service/automovelService';
 })
 export class ModalAreaComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { area: number }, private automovelService: AutomovelService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { area: number }, private automovelService: AutomovelService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.automovelService.getByArea(this.data.area).subscribe(
@@ -23,7 +24,11 @@ export class ModalAreaComponent implements OnInit {
 
   listaAutomoveis: any = [{ id: 1, modelo: 'Gol', preco: 10000 }, { id: 2, modelo: 'Palio', preco: 12000 }, { id: 3, modelo: 'Uno', preco: 8000 }];
 
-  vender(idAutomovel: number) {
-    alert('Vendido o automóvel de id: ' + idAutomovel);
+  openVendaAutomovel(automovel: { id: number, modelo: string, preco: number }) {
+    this.dialog.open(ModalVendaComponent, {
+      data: {
+        automovel
+      }
+    });
   }
 }

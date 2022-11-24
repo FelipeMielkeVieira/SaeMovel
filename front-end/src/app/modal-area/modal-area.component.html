@@ -1,7 +1,6 @@
 <div id="modal">
-
     <h2 mat-dialog-title>Área {{ data.area }}</h2>
-    <mat-dialog-content class="mat-typography">
+    <mat-dialog-content >
         <table>
             <thead>
                 <tr>
@@ -19,7 +18,7 @@
                         {{ formatPreco(automovel.preco) }}
                     </td>
                     <td>
-                        <button (click)="vender(automovel.id)" mat-flat-button color="primary">Vender</button>
+                        <button (click)="openVendaAutomovel(automovel)" mat-flat-button class="btn">Vender</button>
                     </td>
                 </tr>
             </tbody>

@@ -16,7 +16,7 @@
                         {{ automovel.modelo }}
                     </td>
                     <td>
-                        {{ automovel.preco }}
+                        {{ formatPreco(automovel.preco) }}
                     </td>
                     <td>
                         <button (click)="vender(automovel.id)" mat-flat-button color="primary">Vender</button>

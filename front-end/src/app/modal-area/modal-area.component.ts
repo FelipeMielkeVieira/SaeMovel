@@ -13,4 +13,9 @@ export class ModalAreaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  listaAutomoveis: any = [{ id: 1, modelo: 'Gol', preco: 10000 }, { id: 2, modelo: 'Palio', preco: 12000 }, { id: 3, modelo: 'Uno', preco: 8000 }];
+
+  vender(idAutomovel: number) {
+    alert('Vendido o automóvel de id: ' + idAutomovel);
+  }
 }

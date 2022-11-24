@@ -9,6 +9,8 @@ import { ModalVendaComponent } from './modal-venda/modal-venda.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+
 import { AlocacaoService } from './service/alocacaoService';
 import { AutomovelService } from './service/automovelService';
 import { ClienteService } from './service/clienteService';
@@ -27,7 +29,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [AlocacaoService, AutomovelService, ClienteService, ConcessionariaService],
   bootstrap: [AppComponent]

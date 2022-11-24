@@ -1,8 +1,32 @@
-<h2 mat-dialog-title>Área {{ data.area }}</h2>
-<mat-dialog-content class="mat-typography">
+<div id="modal">
 
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
-</mat-dialog-actions>
+    <h2 mat-dialog-title>Área {{ data.area }}</h2>
+    <mat-dialog-content class="mat-typography">
+        <table>
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Preço</th>
+                    <th>Vender</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let automovel of listaAutomoveis">
+                    <td>
+                        {{ automovel.modelo }}
+                    </td>
+                    <td>
+                        {{ automovel.preco }}
+                    </td>
+                    <td>
+                        <button (click)="vender(automovel.id)" mat-flat-button color="primary">Vender</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+    </mat-dialog-actions>
+</div>

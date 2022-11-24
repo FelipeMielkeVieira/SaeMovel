@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ClienteService } from '../service/clienteService';
 
 @Component({
   selector: 'app-modal-venda',
@@ -8,12 +9,15 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ModalVendaComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private clienteService: ClienteService) { }
 
   ngOnInit(): void {
+    this.clienteService.getAll().subscribe(
+      data => { this.listaClientes = data }
+    );
   }
 
-  listaClientes: any = [{id: 1, nome: "Kenzo"}, {id: 2, nome: "Rafael"}, ];
+  listaClientes: any = [];
 
 
 }

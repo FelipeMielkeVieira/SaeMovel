@@ -4,6 +4,7 @@ import br.senai.sc.saemovel.model.entities.Alocacao;
 import br.senai.sc.saemovel.model.entities.Automovel;
 import br.senai.sc.saemovel.model.entities.Concessionaria;
 import br.senai.sc.saemovel.model.service.AlocacaoService;
+import br.senai.sc.saemovel.util.AutomovelUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +27,11 @@ public class ConcessionariaController {
 
     @GetMapping
     public ResponseEntity<List<Concessionaria>> findByAreaAndAutomovel(
-            @RequestParam Integer area, @RequestParam Automovel automovel
+            @RequestParam Integer area, @RequestParam String automovelJson
     ) {
+        AutomovelUtil util = new AutomovelUtil();
+        Automovel automovel = util.convertJsonToModel(automovelJson);
+
         List<Alocacao> alocacoes = alocacaoService.findByAreaAndAutomovel(area, automovel);
         List<Concessionaria> concessionarias = new ArrayList<>();
         for (Alocacao alocacao : alocacoes) {

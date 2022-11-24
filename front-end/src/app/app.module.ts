@@ -4,6 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlocacaoService } from './service/alocacaoService';
+import { AutomovelService } from './service/automovelService';
+import { ClienteService } from './service/clienteService';
+import { ConcessionariaService } from './service/concessionariaService';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,9 +17,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AlocacaoService, AutomovelService, ClienteService, ConcessionariaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

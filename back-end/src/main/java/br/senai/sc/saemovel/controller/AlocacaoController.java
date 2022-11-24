@@ -1,17 +1,18 @@
 package br.senai.sc.saemovel.controller;
 
 import br.senai.sc.saemovel.model.entities.Alocacao;
+import br.senai.sc.saemovel.model.entities.Automovel;
+import br.senai.sc.saemovel.model.entities.Concessionaria;
 import br.senai.sc.saemovel.model.service.AlocacaoService;
+import br.senai.sc.saemovel.util.AutomovelUtil;
+import br.senai.sc.saemovel.util.ConcessionariaUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -29,6 +30,19 @@ public class AlocacaoController {
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(true);
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<Object> findByAreaAndConcessionariaAndAutomovel(@RequestParam Integer area,
+                                                                          @RequestParam String concessionariaJson,
+                                                                          @RequestParam String automovelJson) {
+        AutomovelUtil automovelUtil = new AutomovelUtil();
+        Automovel automovel = automovelUtil.convertJsonToModel(automovelJson);
+
+        ConcessionariaUtil concessionariaUtil = new ConcessionariaUtil();
+        Concessionaria concessionaria = concessionariaUtil.convertJsonToModel(concessionariaJson);
+        
+        return ResponseEntity.status(HttpStatus.OK).body(alocacaoService.findByAreaAndConcessionariaAndAutomovel(area, concessionaria, automovel));
     }
 
     @PutMapping("/{id}")

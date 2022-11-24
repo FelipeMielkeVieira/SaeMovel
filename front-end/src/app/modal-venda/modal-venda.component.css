@@ -2,7 +2,7 @@
     font-family: 'Segoe UI';
 }
 
-.container-select {
+.container-conteudo {
     width: 100%;
 }
 
@@ -20,4 +20,11 @@
 
 .fonteBase {
     font-family: 'Segoe UI';
+}
+
+#container-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }

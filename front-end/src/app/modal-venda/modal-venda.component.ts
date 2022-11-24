@@ -20,5 +20,20 @@ export class ModalVendaComponent implements OnInit {
   listaClientes: any = [];
   listaConcessionaria: any = [{ id: 1, concessionaria: "Ado" }, { id: 2, concessionaria: "Ado2" }, { id: 3, concessionaria: "Ado3" }];
 
+  isConfirmDisabled: boolean = true;
+  cliente: any = 0;
+  concessionaria: any = 0;
 
+  onSelectUpdate() {
+    if (this.cliente != 0 && this.concessionaria != 0) {
+      this.isConfirmDisabled = false;
+    }
+
+    console.log("cliente", this.cliente)
+    console.log("c", this.concessionaria)
+  }
+
+  confirmSell() {
+    console.log("a")
+  }
 }

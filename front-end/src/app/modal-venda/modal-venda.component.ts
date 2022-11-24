@@ -16,8 +16,9 @@ export class ModalVendaComponent implements OnInit {
       data => { this.listaClientes = data }
     );
   }
-
+  
   listaClientes: any = [];
+  listaConcessionaria: any = [{ id: 1, concessionaria: "Ado" }, { id: 2, concessionaria: "Ado2" }, { id: 3, concessionaria: "Ado3" }];
 
 
 }

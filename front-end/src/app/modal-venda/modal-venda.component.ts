@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ClienteService } from '../service/clienteService';
+import { ConcessionariaService } from '../service/concessionariaService';
 
 @Component({
   selector: 'app-modal-venda',
@@ -9,16 +10,26 @@ import { ClienteService } from '../service/clienteService';
 })
 export class ModalVendaComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private clienteService: ClienteService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+    private clienteService: ClienteService,
+    private concessionariaService: ConcessionariaService
+  ) { }
 
   ngOnInit(): void {
     this.clienteService.getAll().subscribe(
       data => { this.listaClientes = data }
     );
+
+    let params: any = {};
+    params.area = parseInt(this.data.area);
+    params.automovelJson = JSON.stringify(this.data.automovel);
+    this.concessionariaService.getByAreaAndAutomovel(params).subscribe(
+      data => { this.listaConcessionaria = data; }
+    )
   }
-  
+
   listaClientes: any = [];
-  listaConcessionaria: any = [{ id: 1, concessionaria: "Ado" }, { id: 2, concessionaria: "Ado2" }, { id: 3, concessionaria: "Ado3" }];
+  listaConcessionaria: any = [];
 
 
 }

@@ -27,7 +27,8 @@ export class ModalAreaComponent implements OnInit {
   openVendaAutomovel(automovel: { id: number, modelo: string, preco: number }) {
     this.dialog.open(ModalVendaComponent, {
       data: {
-        automovel
+        automovel,
+        area: this.data.area
       }
     });
   }

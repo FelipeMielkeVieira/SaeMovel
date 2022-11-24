@@ -41,7 +41,7 @@ public class AlocacaoController {
 
         ConcessionariaUtil concessionariaUtil = new ConcessionariaUtil();
         Concessionaria concessionaria = concessionariaUtil.convertJsonToModel(concessionariaJson);
-        
+
         return ResponseEntity.status(HttpStatus.OK).body(alocacaoService.findByAreaAndConcessionariaAndAutomovel(area, concessionaria, automovel));
     }
 
